@@ -1,27 +1,33 @@
-# 💡 MLOps & Machine Learning Project Portfolio – Ehsan Zafari, Ph.D.
 
-Welcome to my professional portfolio showcasing real-world machine learning and MLOps projects.  
-As a Senior ML Engineer and Cloud AI Specialist (AWS Certified), I build scalable AI systems that go beyond notebooks – into production.
+# 🔍 Project 01 – AutoML with SageMaker
 
-## 🚀 Projects Overview
+This project demonstrates a full ML pipeline using **Amazon SageMaker Autopilot** for predicting customer churn. It includes dataset upload to S3, Autopilot configuration and run, deployment of the best model, and testing the endpoint with sample inputs.
 
-### 🔹 Project 01 – AutoML with SageMaker
-Build and deploy an end-to-end AutoML pipeline using SageMaker Autopilot, Model Monitor, and S3.
+## 🧠 Objective
+Use SageMaker Autopilot to train a binary classifier to predict customer churn from a dataset, then deploy and test it.
 
-### 🔹 Project 02 – Crypto Trading ML Agent
-LSTM-based crypto trading bot with real-time signal generation and backtesting.
+## 📦 Dataset
+A simplified telecom churn dataset with features such as service usage, account history, and customer demographics.
 
-### 🔹 Project 03 – MLOps Deployment Pipeline
-CI/CD-based ML pipeline for training, model validation, and automated deployment with Docker & GitHub Actions.
+## 🚀 Pipeline Steps
+1. Upload dataset to Amazon S3
+2. Run SageMaker Autopilot experiment
+3. Retrieve best candidate model
+4. Deploy model to real-time endpoint
+5. Run predictions with sample inputs
+6. Monitor and log results
 
-### 🔹 Project 04 – NLP Text Classification
-Transformer-based sentiment classification pipeline with dataset curation and serving API.
+## 🔧 Technologies
+- AWS SageMaker
+- S3
+- Python (boto3, sagemaker SDK)
+- Jupyter Notebook
 
----
+## 📁 Files
+- `01-upload-data.ipynb`: Upload dataset to S3
+- `02-run-autopilot.ipynb`: Start Autopilot job and track progress
+- `03-deploy-and-test.ipynb`: Deploy and query the model endpoint
+- `report.md`: Results and analysis
 
-## 🌐 Technologies Used
-Python | AWS (SageMaker, Lambda, EC2, Glue) | Docker | TensorFlow | PyTorch | GitHub Actions | SQL | Scikit-learn | CI/CD
-
-## 📬 Contact
-Feel free to connect via [LinkedIn](https://www.linkedin.com/in/dr-ehsan-zafari-ai-ml)
-# mlops-projects-portfolio
+## 📬 Author
+Dr. Ehsan Zafari – Senior ML/MLOps Engineer | AWS Certified
