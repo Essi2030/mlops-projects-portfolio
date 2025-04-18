@@ -50,3 +50,5 @@ Dr. Ehsan Zafari
 Senior ML & MLOps Engineer | CI/CD & Cloud AI Expert  
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/dr-ehsan-zafari-ai-ml)
 
+# Triggering CI/CD manually
+test workflow trigger
