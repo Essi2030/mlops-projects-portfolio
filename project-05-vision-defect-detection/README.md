@@ -1,55 +1,72 @@
 
 # 👁️ Project 05 – Vision-Based Defect Detection with YOLOv8
 
-This project demonstrates a real-time computer vision pipeline using YOLOv8 for detecting surface defects in industrial images. The final model is served via FastAPI for API-based prediction and can be integrated into cloud or edge systems.
+This project demonstrates an end-to-end object detection pipeline using YOLOv8 to identify visual defects in images. It includes training on a custom dataset, exporting the model, and serving it through a FastAPI REST API.
 
 ---
 
 ## 🎯 Objective
-- Detect visual defects in images using object detection
-- Train a YOLOv8 model on a labeled dataset (bounding boxes)
-- Build an inference API using FastAPI for real-time use
-- Optionally containerize with Docker
+Build an AI system that detects surface defects using deep learning and serves predictions via a REST API.
 
 ---
 
 ## 🧠 Model
-- Architecture: YOLOv8 (from Ultralytics)
-- Task: Object Detection
-- Dataset: Custom images (surface defects or public datasets)
-- Output: bounding boxes + class labels
+- Architecture: YOLOv8n (Ultralytics)
+- Dataset: Custom defect dataset (bounding boxes)
+- Export format: ONNX + PyTorch
+- Trained for 30 epochs @ 640x640 resolution
 
 ---
 
-## 🧪 Example Output
-<img src="https://user-images.githubusercontent.com/placeholder/defect-example.png" width="500"/>
+## 🌐 FastAPI Inference
+- Endpoint: `/predict`
+- Input: uploaded image file (JPG/PNG)
+- Output: list of detected defects with class, confidence, and bounding box
+
+### 🧪 Example API Call:
+```bash
+curl -X POST http://localhost:8000/predict -F "file=@defect.jpg"
+```
+
+### ✅ Example Response:
+```json
+{
+  "detections": [
+    {
+      "class": "crack",
+      "confidence": 0.978,
+      "bbox": [55.2, 34.8, 200.1, 120.7]
+    }
+  ]
+}
+```
 
 ---
 
-## 🛠️ Tools & Libraries
-- `ultralytics` (YOLOv8)
-- `FastAPI` · `OpenCV` · `Torch`
-- `Docker` (for deployment)
+## 🧰 Tech Stack
+- `ultralytics`, `PyTorch`, `FastAPI`, `OpenCV`
+- Optionally Dockerized for deployment
 
 ---
 
 ## 📦 Folder Structure
 ```
 project-05-vision-defect-detection/
-├── 01-train-yolo.ipynb         # Training YOLOv8 model
-├── 02-api-inference.ipynb      # Building FastAPI inference
-├── api/                        # Inference code (main.py)
-├── data/                       # Images + labels
-├── Dockerfile
-├── requirements.txt
-├── report.md
+├── 01-train-yolo.ipynb         # YOLOv8 training notebook
+├── 02-api-inference.ipynb      # API building notebook
+├── api/                        # FastAPI code
+├── data/                       # Dataset & labels
+├── Dockerfile                  # (optional)
+├── requirements.txt            # Python packages
+├── report.md                   # Final project report
 └── README.md
 ```
 
 ---
 
-## 📬 Author
+## 👨‍💻 Author
 Dr. Ehsan Zafari  
-Senior ML/MLOps Engineer | Computer Vision Specialist  
+Senior ML/MLOps Engineer | Vision AI Specialist  
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/dr-ehsan-zafari-ai-ml)
 
+🔗 [View Project on GitHub](https://github.com/Essi2030/mlops-projects-portfolio/tree/main/project-05-vision-defect-detection)
