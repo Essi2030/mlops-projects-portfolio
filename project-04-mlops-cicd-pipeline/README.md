@@ -1,40 +1,34 @@
 
 # 🔁 Project 04 – MLOps CI/CD Pipeline with FastAPI, Docker, and GitHub Actions
 
-This project demonstrates a full CI/CD pipeline for machine learning deployment.  
-From training a model to serving it via API, containerizing the app, and automating deployment using GitHub Actions.
+This project demonstrates a production-ready CI/CD pipeline to automate training, serving, and testing of a machine learning model via a REST API. Built with FastAPI, Docker, and GitHub Actions.
+
+---
 
 ## 🎯 Objective
-Build a production-ready pipeline for ML deployment with:
-- Trained scikit-learn model
-- FastAPI inference service
-- Docker container for portability
-- GitHub Actions workflow for CI/CD
+- Train a ML model (Iris classifier)
+- Serve it as an API using FastAPI
+- Dockerize the application
+- Automate CI/CD using GitHub Actions
 
-## 🛠 Features
-✅ Train and save a classification model  
-✅ Serve the model via REST API (FastAPI)  
-✅ Containerize with Docker  
-✅ GitHub Actions workflow: test + build + deploy  
-✅ Optional: push to AWS EC2 or DockerHub
+---
 
-## 🔧 Tech Stack
-- Python · scikit-learn · FastAPI · Docker · GitHub Actions · pytest
+## 🧠 Model
+- Algorithm: RandomForestClassifier
+- Dataset: Iris (scikit-learn)
+- Accuracy: ~96%
+- Outputs:
+  - `iris_model.joblib`
+  - `class_names.txt`
 
-## 📦 Folder Structure
-```
-project-04-mlops-cicd-pipeline/
-├── 01-train-model.ipynb           # Train and export model (joblib/pkl)
-├── api/
-│   └── main.py                    # FastAPI app loading model
-├── Dockerfile                     # Image build for API service
-├── .github/workflows/deploy.yml  # CI/CD automation via GitHub Actions
-├── requirements.txt
-├── report.md                      # Results, screenshots, logs
-└── README.md
-```
+---
 
-## 🚀 Example API call
+## 🌐 API Features
+- Built with FastAPI
+- `/predict` endpoint receives 4 float features
+- Returns predicted class with confidence
+
+Example:
 ```bash
 curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" \
      -d '{"features": [5.1, 3.5, 1.4, 0.2]}'
@@ -42,12 +36,44 @@ curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" \
 
 Response:
 ```json
-{"prediction": "setosa"}
+{ "prediction": "setosa" }
 ```
 
-## 📬 Author
+---
+
+## 🔄 CI/CD Pipeline (GitHub Actions)
+- Trigger: push to `main`
+- Steps:
+  - Checkout code
+  - Install dependencies
+  - Run tests or validation logic
+
+---
+
+## 📦 Folder Structure
+```
+project-04-mlops-cicd-pipeline/
+├── 01-train-model.ipynb           # Train and save model
+├── api/main.py                    # FastAPI serving code
+├── Dockerfile                     # Docker build
+├── requirements.txt               # Dependencies
+├── .github/workflows/deploy.yml  # CI/CD pipeline
+├── report.md                      # Summary report
+└── README.md
+```
+
+---
+
+## 🚀 Next Steps
+- Add unit tests with `pytest`
+- Add DockerHub auto-push
+- Deploy to AWS EC2 or Render
+
+---
+
+## 👨‍💻 Author
 Dr. Ehsan Zafari  
-Senior ML & MLOps Engineer | CI/CD & Cloud AI Expert  
+Senior ML/MLOps Engineer  
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/dr-ehsan-zafari-ai-ml)
 
-# Triggering CI/CD manually
+🔗 [View Project on GitHub](https://github.com/Essi2030/mlops-projects-portfolio/tree/main/project-04-mlops-cicd-pipeline)
